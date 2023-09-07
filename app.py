@@ -11,7 +11,6 @@ def predict():
 
 st.button('Predict',on_click=predict)
 
-
 chart_data = np.random.randn(20, 3)
 
 # Создаем график
