@@ -1,13 +1,12 @@
 import streamlit as st
-
-st.title("Мое первое Streamlit приложение")
-
-user_input = st.text_input("Введите ваше имя")
-if user_input:
-    st.write(f"Привет, {user_input}!")
-
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
-chart_data = np.random.randn(20, 3)
-st.line_chart(chart_data)
+st.title("Molecules")
+molecule = st.text_input('Input Molecule', 'CH-Co')
+
+def predict():
+    st.success('It's done')
+
+st.button('Predict',on_click=predict)
