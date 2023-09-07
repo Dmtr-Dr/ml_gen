@@ -7,6 +7,6 @@ st.title("Molecules")
 molecule = st.text_input('Input Molecule', 'CH-Co')
 
 def predict():
-    st.success('It's done')
+    st.success("It's done")
 
 st.button('Predict',on_click=predict)
