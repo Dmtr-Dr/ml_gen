@@ -6,4 +6,3 @@ rdkit
 tensorflow
 jax
 deepchem==2.7.2.dev20230908173320
-os
