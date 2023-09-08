@@ -3,5 +3,3 @@ matplotlib
 numpy
 pandas
 rdkit
-pillow
-io
