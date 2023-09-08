@@ -3,4 +3,4 @@ matplotlib
 numpy
 pandas
 rdkit
-IPython.display
+pillow
