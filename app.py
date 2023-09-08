@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from openbabel import pybel
+from extra import mol_image
 
 
 st.title("Molecules")
@@ -12,20 +12,9 @@ def predict():
 
 st.button('Predict',on_click=predict)
 
-def draw_molecule(molecule_text):
-    try:
-        # Преобразование текста молекулы в изображение
-        mol = pybel.readstring("smi", molecule_text)
-        mol.make3D()
-        mol.draw(format="png", filename="molecule.png", overwrite=True)
-
-        # Отображение изображения в Streamlit
-        st.image("molecule.png", use_column_width=True)
-    except Exception as e:
-        st.error(f"Произошла ошибка при отображении молекулы: {e}")
 
 if molecule:
-    draw_molecule(molecule)
+    mol_image(molecule)
 
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
 
