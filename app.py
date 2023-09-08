@@ -19,7 +19,6 @@ plt.plot(chart_data)
 # Отображаем график на странице
 st.pyplot(plt)
 
-
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
 
 if uploaded_file is not None:
