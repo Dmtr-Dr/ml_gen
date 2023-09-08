@@ -5,7 +5,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
 
-st.title("Molecules")
+st.title("Tool для определения молекул-ингибиторов и блокираторов репликации ВИЧ")
 molecule = st.text_input('Input Molecule', 'CCO')
 
 def predict():
