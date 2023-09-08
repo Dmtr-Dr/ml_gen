@@ -6,3 +6,4 @@ rdkit
 tensorflow
 jax
 deepchem
+os
