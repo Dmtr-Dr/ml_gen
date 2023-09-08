@@ -1,12 +1,14 @@
+from __future__ import print_function
+from __future__ import division
+from __future__ import unicode_literals
+
 import streamlit as st
 import numpy as np
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
-from __future__ import print_function
-from __future__ import division
-from __future__ import unicode_literals
+
 import numpy as np
 import deepchem as dc
 import os
