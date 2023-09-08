@@ -4,4 +4,3 @@ numpy
 PIL
 pandas
 rdkit
-IPython.display
