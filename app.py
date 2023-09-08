@@ -4,7 +4,7 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
-from IPython.display import display
+from pillow import Image
 
 
 st.title("Molecules")
@@ -17,8 +17,8 @@ st.button('Predict',on_click=predict)
 
 core = Chem.MolFromSmiles(molecule)
 img = Draw.MolToImage(core)
-st.image(display(img))
-
+pil_img = Image.fromarray(img)
+st.image(pil_img, caption='Молекула', use_column_width=True)
 
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
 
