@@ -1,0 +1,9 @@
+Compound #1
+c1ccccc1
+Inactive: 1.551432433188893e-06, Active: 0.9999984502792358
+Compound #2
+c1ccccc1
+Inactive: 1.551432433188893e-06, Active: 0.9999984502792358
+Compound #3
+c1ccccc1
+Inactive: 1.5514309552600025e-06, Active: 0.9999984502792358
