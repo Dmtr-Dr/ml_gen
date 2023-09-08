@@ -3,14 +3,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.set_page_config(
-    page_title="Мое Streamlit приложение",
-    page_icon="📊",
-    layout="wide",  # Можно настроить макет
-    initial_sidebar_state="expanded",  # Можно настроить состояние боковой панели
-    background_color="#98ff98",  # Здесь можно установить цвет фона
-)
-
 st.title("Molecules")
 molecule = st.text_input('Input Molecule', 'CH-Co')
 
@@ -26,3 +18,14 @@ plt.plot(chart_data)
 
 # Отображаем график на странице
 st.pyplot(plt)
+
+
+uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
+
+if uploaded_file is not None:
+    # Считываем содержимое загруженного файла
+    file_contents = uploaded_file.read()
+
+    # Отображаем содержимое файла
+    st.write("Содержимое загруженного файла:")
+    st.write(file_contents)
