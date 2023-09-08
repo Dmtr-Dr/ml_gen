@@ -3,4 +3,3 @@ matplotlib
 numpy
 pandas
 rdkit
-libXrender.so.1
