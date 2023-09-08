@@ -4,6 +4,15 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
+from __future__ import print_function
+from __future__ import division
+from __future__ import unicode_literals
+import numpy as np
+import deepchem as dc
+import os
+from deepchem.molnet import load_hiv, featurizers
+from deepchem.feat.molecule_featurizers import MolGraphConvFeaturizer
+from utils import *
 
 st.title("Tool для определения молекул-ингибиторов и блокираторов репликации ВИЧ")
 molecule = st.text_input('Input Molecule', 'CCO')
@@ -18,5 +27,22 @@ else:
     img_matplotlib = Draw.MolToMPL(mol)
     st.pyplot(plt, clear_figure=True)
 
+featurizer = dc.feat.CircularFingerprint(size=1024)  # Фичи
+ecfp = featurizer.featurize(list(molecule))
+
+smiles_dataset = dc.data.NumpyDataset(X=ecfp)  # Датасет
+
+model = dc.models.MultitaskClassifier(
+    1,
+    1024,
+    layer_sizes=[1000],
+    dropouts=[.25],
+    learning_rate=0.001,
+    batch_size=50)  # batch_size default 50
+
+set_checkpoint(model, 'hiv')  # Устанавливаем чекпоинты
+
+out = model.predict(smiles_dataset)
+st.write(out)
 
 
