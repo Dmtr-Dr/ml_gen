@@ -13,7 +13,7 @@ def predict():
 
 st.button('Predict',on_click=predict)
 
-if molecule is not null:
+if molecule:
     mol = Chem.MolFromSmiles(molecule)
     img = Draw.MolToImage(mol)
     img_matplotlib = Draw.MolToMPL(mol)
