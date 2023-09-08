@@ -4,20 +4,22 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
+from PIL import Image
 
 st.title("Molecules")
-molecule = st.text_input('Input Molecule', 'CC0')
+molecule = st.text_input('Input Molecule', 'CCO')
 
 def predict():
     st.success("It's done")
 
 st.button('Predict',on_click=predict)
 
-mol = Chem.MolFromSmiles(molecule)
-img = Draw.MolToImage(mol)
-img_matplotlib = Draw.MolToMPL(mol)
-plt.axis('off')
-st.pyplot(plt, clear_figure=True)
+if molecule is not None:
+    img = Draw.MolToImage(mol, size=(300, 300))
+    pil_img = Image.fromarray(img)
+    st.image(pil_img, caption='Молекула', use_column_width=True)
+else:
+    st.error("Некорректная SMILES-нотация молекулы")
 
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
 
