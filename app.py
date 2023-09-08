@@ -1,6 +1,4 @@
-from __future__ import print_function
-from __future__ import division
-from __future__ import unicode_literals
+from __future__ import print_function, division, unicode_literals
 import streamlit as st
 import numpy as np
 import pandas as pd
