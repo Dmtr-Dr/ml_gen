@@ -2,4 +2,4 @@ streamlit
 matplotlib
 numpy
 pandas
-rdkit
+rdkit==2020.09.1
