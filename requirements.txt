@@ -3,3 +3,4 @@ matplotlib
 numpy
 PIL
 pandas
+rdkit
