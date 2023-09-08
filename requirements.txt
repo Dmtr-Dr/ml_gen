@@ -3,3 +3,6 @@ matplotlib
 numpy
 pandas
 rdkit
+tensorflow
+jax
+deepchem
