@@ -5,5 +5,5 @@ pandas
 rdkit
 tensorflow
 jax
-deepchem==2.7.2
+deepchem
 os
