@@ -17,7 +17,7 @@ st.button('Predict',on_click=predict)
 
 core = Chem.MolFromSmiles(molecule)
 img = Draw.MolToImage(core)
-st.image(img)
+st.image(display(img))
 
 
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
