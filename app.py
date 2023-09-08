@@ -13,10 +13,13 @@ def predict():
 
 st.button('Predict',on_click=predict)
 
-mol = Chem.MolFromSmiles(molecule)
-img = Draw.MolToImage(mol)
-img_matplotlib = Draw.MolToMPL(mol)
-st.pyplot(plt, clear_figure=True)
+if molecule is not null:
+    mol = Chem.MolFromSmiles(molecule)
+    img = Draw.MolToImage(mol)
+    img_matplotlib = Draw.MolToMPL(mol)
+    st.pyplot(plt, clear_figure=True)
+else:
+    st.error("Некорректная SMILES-нотация молекулы")
 
 uploaded_file = st.file_uploader("Выберите текстовый файл", type=["txt"])
 
