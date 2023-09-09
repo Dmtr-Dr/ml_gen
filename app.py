@@ -35,9 +35,9 @@ binary_prediction = [1 if score > 0.5 else 0 for score in prediction]
 
 def predict():
     if binary_prediction[0] ==0:
-        st.header("No")
+        st.write("No")
     else:
-        st.header("Yes")
+        st.write("Yes")
 
 st.button('Predict',on_click=predict)
 
