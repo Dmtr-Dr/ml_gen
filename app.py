@@ -37,7 +37,7 @@ st.button('Predict',on_click=predict)
 
 def predict():
     if binary_prediction[0] ==0:
-        st.write("No")
+        st.header("No")
     else:
-        st.write("Yes")
+        st.header("Yes")
 
