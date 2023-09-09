@@ -9,6 +9,8 @@ import deepchem as dc
 import os
 from deepchem.molnet import load_hiv, featurizers
 from deepchem.feat.molecule_featurizers import MolGraphConvFeaturizer
+from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
+import pickle
 from utils import *
 
 st.title("Tool для определения молекул-ингибиторов и блокираторов репликации ВИЧ")
@@ -22,23 +24,14 @@ else:
     img_matplotlib = Draw.MolToMPL(mol)
     st.pyplot(plt, clear_figure=True)
 
-featurizer = dc.feat.CircularFingerprint(size=1024)  # Фичи
-ecfp = featurizer.featurize(list(molecule))
+new_data_smiles = list(molecule)
+tokenizer = keras.layers.TextVectorization(max_tokens=1000)
+tokenizer.adapt(new_smiles_data)
 
-smiles_dataset = dc.data.NumpyDataset(X=ecfp)  # Датасет
+load_model = pickle.load(open('model.pkl', 'rb'))
+prediction = load_model.predict(new_smiles_data)
 
-model = dc.models.MultitaskClassifier(
-    1,
-    1024,
-    layer_sizes=[1000],
-    dropouts=[.25],
-    learning_rate=0.001,
-    batch_size=50)  # batch_size default 50
-
-set_checkpoint(model, 'hiv')  # Устанавливаем чекпоинты
-
-out = model.predict(smiles_dataset)
 def predict():
-    st.write(out)
+    st.write(prediction)
 
 st.button('Predict',on_click=predict)
