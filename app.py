@@ -31,8 +31,8 @@ tokenizer.adapt(new_smiles_data)
 
 load_model = pickle.load(open('model.pkl', 'rb'))
 prediction = load_model.predict(new_smiles_data)
-binary_predictions = [1 if score > 0.5 else 0 for score in predictions]
+binary_prediction = [1 if score > 0.5 else 0 for score in prediction]
 def predict():
-    st.write(binary_predictions[0])
+    st.write(binary_prediction[0])
 
 st.button('Predict',on_click=predict)
