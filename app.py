@@ -10,6 +10,7 @@ import os
 from deepchem.molnet import load_hiv, featurizers
 from deepchem.feat.molecule_featurizers import MolGraphConvFeaturizer
 from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
+from tensorflow import keras
 import pickle
 from utils import *
 
