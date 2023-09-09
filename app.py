@@ -25,7 +25,7 @@ else:
     img_matplotlib = Draw.MolToMPL(mol)
     st.pyplot(plt, clear_figure=True)
 
-new_data_smiles = list(molecule)
+new_smiles_data = list(molecule)
 tokenizer = keras.layers.TextVectorization(max_tokens=1000)
 tokenizer.adapt(new_smiles_data)
 
